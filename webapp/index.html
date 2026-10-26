@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101720">
+  <meta name="description" content="Consulte o status de cargas no Comprovei pelo computador ou celular.">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Comprovei | Consulta de cargas</title>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Comprovei início"><span class="brand-mark">C</span><span>Comprovei<span class="brand-sub">CONSULTA DE CARGAS</span></span></a>
+    <div class="connection"><i id="connectionDot"></i><span id="connectionText">Verificando servidor</span></div>
+  </header>
+  <main class="shell">
+    <section class="intro">
+      <div class="eyebrow">PAINEL DE OPERAÇÃO</div>
+      <h1>Consulta de cargas</h1>
+      <p>Informe as rotas e o período para conferir documentos finalizados.</p>
+    </section>
+    <section class="panel auth-panel" aria-labelledby="authTitle">
+      <div class="panel-heading"><div><span class="step">01</span><div><h2 id="authTitle">Conexão segura</h2><p>Use o token definido no computador que executa a automação.</p></div></div><span class="lock">🔒</span></div>
+      <label for="token">Token do servidor</label>
+      <div class="token-row"><input id="token" type="password" autocomplete="off" placeholder="Cole aqui o token do servidor"><button id="saveToken" class="button button-soft" type="button">Conectar</button></div>
+      <small>O token fica salvo somente neste navegador.</small>
+    </section>
+    <section class="panel" aria-labelledby="formTitle">
+      <div class="panel-heading"><div><span class="step">02</span><div><h2 id="formTitle">Cargas para consultar</h2><p>Adicione uma ou mais cargas. Período máximo: 31 dias.</p></div></div></div>
+      <div class="fields"><div class="field"><label for="cargo">Número da carga/rota</label><input id="cargo" inputmode="numeric" autocomplete="off" placeholder="Ex.: 4785164"></div><div class="field"><label for="dataInicial">Data inicial</label><input id="dataInicial" type="date"></div><div class="field"><label for="dataFinal">Data final</label><input id="dataFinal" type="date"></div><button id="addCargo" class="button button-add" type="button"><span>＋</span> Adicionar</button></div>
+      <div class="quick-actions"><button id="sample" class="text-button" type="button">Carregar exemplo</button><span>Até 100 cargas por envio</span></div>
+      <div class="table-wrap"><table><thead><tr><th>Carga/rota</th><th>Data inicial</th><th>Data final</th><th class="remove-heading">Ação</th></tr></thead><tbody id="cargoRows"><tr class="empty-row"><td colspan="4">Nenhuma carga adicionada ainda.</td></tr></tbody></table></div>
+      <div class="submit-row"><span id="queueCount">0 cargas na fila</span><button id="runQuery" class="button button-primary" type="button" disabled><span>▶</span> Consultar cargas</button></div>
+      <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+    </section>
+    <section id="resultsPanel" class="panel results-panel" aria-labelledby="resultsTitle" hidden>
+      <div class="panel-heading results-heading"><div><span class="step">03</span><div><h2 id="resultsTitle">Resultados</h2><p id="resultsSummary">As consultas concluídas aparecerão aqui.</p></div></div><button id="downloadCsv" class="button button-soft" type="button">Baixar CSV</button></div>
+      <div class="table-wrap"><table><thead><tr><th>Carga/rota</th><th>Resultado</th><th>Status</th><th>Observação</th></tr></thead><tbody id="resultRows"></tbody></table></div>
+    </section>
+    <footer><span>A sessão do Comprovei permanece no Chrome deste computador.</span><span>Automação local · Acesso protegido por token</span></footer>
+  </main>
+</body>
+</html>

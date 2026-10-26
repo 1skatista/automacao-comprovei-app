@@ -1,0 +1,124 @@
+# AUTOMAÇÃO TNS / COMPROVEI
+
+ROTINA DIÁRIA — 5 COMANDOS
+
+1. ABRIR A PASTA DO PROGRAMA
+
+---
+
+cd C:\AutomacaoComprovei\comprovei_automacao
+
+2. ATIVAR O AMBIENTE
+
+---
+
+..venv\Scripts\Activate.ps1
+
+3. FAZER LOGIN — SOMENTE SE NECESSÁRIO
+
+---
+
+python login.py
+
+Use este comando quando:
+
+* A sessão tiver expirado;
+* O Comprovei solicitar novo login;
+* O programa não conseguir acessar o sistema.
+
+Faça o login normalmente no Chrome.
+
+4. PROCESSAR AS CARGAS
+
+---
+
+python consultar.py
+
+ANTES DE EXECUTAR:
+
+* Preencha o cargas.xlsx;
+* Salve a planilha;
+* FECHE o LibreOffice Calc;
+* Não feche o Chrome durante a execução.
+
+O programa consulta as cargas pendentes e atualiza a planilha.
+
+5. REPROCESSAR TODAS AS CARGAS
+
+---
+
+python consultar.py --reprocessar-tudo
+
+Use quando quiser consultar novamente todas as cargas.
+
+Recomendado principalmente para cargas que estavam:
+
+INCOMPLETA
+
+e podem ter recebido novos documentos.
+
+========================================
+ROTINA NORMAL
+=============
+
+1. Abrir PowerShell
+2. Executar:
+
+cd C:\AutomacaoComprovei\comprovei_automacao
+
+3. Executar:
+
+..venv\Scripts\Activate.ps1
+
+4. Preencher e salvar cargas.xlsx
+5. FECHAR o LibreOffice
+6. Executar:
+
+python consultar.py
+
+7. Aguardar o término.
+8. Abrir cargas.xlsx novamente.
+9. Conferir Resultado, Status e Observação.
+
+========================================
+SE DER PROBLEMA
+===============
+
+Se o programa disser que a sessão expirou:
+
+python login.py
+
+Se o Chrome estiver travado:
+
+taskkill /F /IM chrome.exe
+
+Depois execute novamente:
+
+python consultar.py
+
+# IMPORTANTE
+
+NÃO execute duas automações ao mesmo tempo.
+
+NÃO deixe cargas.xlsx aberto no LibreOffice durante a execução.
+
+NÃO feche o Chrome enquanto a automação estiver funcionando.
+
+O programa cria um backup da planilha antes do processamento.
+
+# COMANDOS PRINCIPAIS
+
+Ativar:
+..venv\Scripts\Activate.ps1
+
+Login:
+python login.py
+
+Processar:
+python consultar.py
+
+Reprocessar tudo:
+python consultar.py --reprocessar-tudo
+
+Fechar Chrome:
+taskkill /F /IM chrome.exe

@@ -1,0 +1,19 @@
+{
+  "url_sistema": "https://ct.comprovei.com/home",
+  "url_consulta": "https://ct.comprovei.com/Routes/index?limit=250",
+  "modo_navegador": "cdp",
+  "chrome_caminho": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+  "perfil_dir": "C:/AutomacaoComprovei/perfil_chrome",
+  "porta_depuracao": 9222,
+  "planilha": "cargas_exemplo.xlsx",
+  "aba": null,
+  "colunas": {"carga":"Carga/Rota","data_inicial":"Data inicial","data_final":"Data final","resultado":"Resultado","status":"Status","observacao":"Observação"},
+  "textos": {"botao_filtros":"Filtros","botao_filtrar":"Filtrar","rotulo_rota":"Rota","rotulo_de":"De","rotulo_ate":"Até","coluna_resultado":"DOC. FINALIZADOS"},
+  "seletores_css": {"campo_rota":"#RoutesNumber","campo_de":"#RoutesRouteDate1","campo_ate":"#RoutesRouteDate2","linhas":""},
+  "timeout_ms":30000,
+  "espera_resultado_ms":8000,
+  "espera_pos_filtro_ms":1500,
+  "intervalo_segundos":3,
+  "tentativas":2,
+  "linhas_por_pagina":250
+}
